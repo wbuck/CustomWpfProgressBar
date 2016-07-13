@@ -41,14 +41,14 @@
                         StartAngle="0"
                         Stretch="None"/>
                 <TextBlock Foreground="{Binding NumericDisplayForeground}" 
-                           FontWeight="Bold" 
-                           FontSize="60" 
+                           FontWeight="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontWeight}" 
+                           FontSize="{Binding RelativeSource={RelativeSource AncestorType=UserControl}, Path=FontSize}" 
                            Visibility="{Binding NumericDisplayVisibility}"
                            Text="{Binding Percentage, StringFormat={}{0}%}" 
                            VerticalAlignment="Center" 
                            HorizontalAlignment="Center"
-                           Panel.ZIndex="3" 
-                           FontFamily="{Binding NumericDisplayFontFamily}"/>
+                           Panel.ZIndex="3"
+                           FontFamily="{Binding RelativeSource={RelativeSource AncestorType=UserControl},Path=FontFamily}"/>
             </Grid>
         </Viewbox>
     </Grid>

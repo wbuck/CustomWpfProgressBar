@@ -65,19 +65,6 @@ namespace ProgressIndicator
                                          typeof( CircularIndicator ),
                                          new PropertyMetadata( 65d, OnPercentageChanged ) );
 
-        public static DependencyProperty NumericDisplayFontFamilyProperty =
-            DependencyProperty.Register( "NumericDisplayFontFamily",
-                                         typeof( FontFamily ),
-                                         typeof( CircularIndicator ),
-                                         new FrameworkPropertyMetadata( SystemFonts.MessageFontFamily,
-                                            FrameworkPropertyMetadataOptions.AffectsRender |
-                                            FrameworkPropertyMetadataOptions.AffectsMeasure ) );
-
-        public FontFamily NumericDisplayFontFamily
-        {
-            get { return ( FontFamily )GetValue( NumericDisplayFontFamilyProperty ); }
-            set { SetValue( NumericDisplayFontFamilyProperty, value ); }
-        }
 
         public Visibility NumericDisplayVisibility
         {
