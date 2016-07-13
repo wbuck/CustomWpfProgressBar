@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProgressIndicator
 {
@@ -74,7 +63,21 @@ namespace ProgressIndicator
             DependencyProperty.Register( "Percentage", 
                                          typeof( double ),
                                          typeof( CircularIndicator ),
-                                         new PropertyMetadata( 65d, new PropertyChangedCallback( OnPercentageChanged ) ) );
+                                         new PropertyMetadata( 65d, OnPercentageChanged ) );
+
+        public static DependencyProperty NumericDisplayFontFamilyProperty =
+            DependencyProperty.Register( "NumericDisplayFontFamily",
+                                         typeof( FontFamily ),
+                                         typeof( CircularIndicator ),
+                                         new FrameworkPropertyMetadata( SystemFonts.MessageFontFamily,
+                                            FrameworkPropertyMetadataOptions.AffectsRender |
+                                            FrameworkPropertyMetadataOptions.AffectsMeasure ) );
+
+        public FontFamily NumericDisplayFontFamily
+        {
+            get { return ( FontFamily )GetValue( NumericDisplayFontFamilyProperty ); }
+            set { SetValue( NumericDisplayFontFamilyProperty, value ); }
+        }
 
         public Visibility NumericDisplayVisibility
         {
